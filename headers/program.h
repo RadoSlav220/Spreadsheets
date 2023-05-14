@@ -1,0 +1,87 @@
+#pragma once
+#include "commands.h"
+
+
+//////////////////////////////////////////////////////
+///@brief Stores and works with user input and executes commands.
+///
+//////////////////////////////////////////////////////
+class Program {
+
+private:
+
+    //////////////////////////////////////////////////////
+    ///@brief The Commands the program can execute.
+    ///
+    //////////////////////////////////////////////////////
+    Commands commands;
+
+    //////////////////////////////////////////////////////
+    ///@brief True if the user want to exit the program
+    ///
+    //////////////////////////////////////////////////////
+    bool wantToExit; 
+
+public:
+
+    //////////////////////////////////////////////////////
+    ///@brief Construct a new Program object
+    ///
+    //////////////////////////////////////////////////////
+    Program ();
+
+    Program (const Program&) = delete;
+
+    Program& operator=(const Program&) = delete;
+
+    //////////////////////////////////////////////////////
+    ///@brief Destroy the Program object. Default.
+    ///
+    //////////////////////////////////////////////////////
+    ~Program () = default;
+
+
+    //////////////////////////////////////////////////////
+    ///@brief Read the user input. Catch and show thrown exceptions.
+    ///
+    //////////////////////////////////////////////////////
+    void Go();
+
+
+    //////////////////////////////////////////////////////
+    ///@brief Determine and execute the current command if it is correct.
+    ///
+    ///@param command The current command in form of a string.
+    //////////////////////////////////////////////////////
+    void executeCommand(const std::string& command);
+    
+private:
+
+    //////////////////////////////////////////////////////
+    ///@brief Get a part of the given command.
+    ///
+    ///@param command The current command.
+    ///@param read The position to read the current command from.
+    ///@return Part of the given command. 
+    //////////////////////////////////////////////////////
+    std::string getPartOfCmd(const std::string& command, size_t& read);
+    
+    
+    //////////////////////////////////////////////////////
+    ///@brief Check if there is unnecessary part of the current command.
+    ///
+    ///@param command The current command.
+    ///@param read The position to read the current command from.
+    ///@return True if there is unnecessary part of the current command. 
+    //////////////////////////////////////////////////////
+    bool isThereExcess(const std::string& command, size_t& read);
+
+
+    //////////////////////////////////////////////////////
+    ///@brief Make all capital letters in a string to small ones.
+    ///
+    ///@param str Random string.
+    //////////////////////////////////////////////////////
+    void toLowerCase(std::string& str);
+
+};
