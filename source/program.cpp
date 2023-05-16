@@ -205,6 +205,17 @@ void Program::executeCommand(const std::string& command)
     }
 
 
+
+    else if (cmdName == "help"){
+        
+        if (firstArg.size() != 0){
+            throw std::invalid_argument("Invalid command!");
+        }
+        commands.HELP();
+    }
+
+
+
     else if (cmdName == "exit"){
         
         if (firstArg.size() != 0){

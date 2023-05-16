@@ -204,6 +204,23 @@ void Commands::PRINT()
 
 
 
+void Commands::HELP()
+{
+    std::cout << "Supported commands:\n"
+                 "NEW                                 Create a new table\n"
+                 "OPEN   <path>                       Open an existing table\n"
+                 "SAVE                                Save the current table\n"
+                 "SAVEAS <path>                       Save a table into specified file\n"
+                 "CLOSE                               Close the current table\n"
+                 "GET    <cellAddress>                Retrieve the value of a cell\n"
+                 "EDIT   <cellAddress> <newValue>     Change the value of a cell\n"
+                 "PRINT                               Print the current table\n"
+                 "HELP                                Show supported commands\n"
+                 "EXIT                                Exit the application\n" << std::endl;
+}
+
+
+
 void Commands::EXIT()
 {
     CLOSE();
